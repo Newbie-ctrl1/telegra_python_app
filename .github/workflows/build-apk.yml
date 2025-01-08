@@ -49,9 +49,22 @@ jobs:
           libtool \
           pkg-config
 
-    - name: Build APK with Buildozer
+    - name: Install Android SDK & NDK
       run: |
-        buildozer init
+        sudo apt-get install -y wget unzip
+        wget https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip
+        sudo mkdir -p /usr/local/android-sdk/cmdline-tools
+        sudo unzip commandlinetools-linux-9477386_latest.zip -d /usr/local/android-sdk/cmdline-tools
+        sudo mv /usr/local/android-sdk/cmdline-tools/cmdline-tools /usr/local/android-sdk/cmdline-tools/latest
+        export ANDROID_HOME=/usr/local/android-sdk
+        export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
+        yes | sdkmanager --licenses
+        sdkmanager "platform-tools" "platforms;android-33" "build-tools;33.0.0" "ndk;23.1.7779620"
+
+    - name: Build APK
+      run: |
+        export ANDROID_HOME=/usr/local/android-sdk
+        export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
         buildozer android debug
 
     - name: Upload Debug APK

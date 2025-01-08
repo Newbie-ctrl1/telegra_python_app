@@ -12,47 +12,35 @@ source.exclude_dirs = tests, bin, venv, myenv, .buildozer
 version = 0.1.0
 
 requirements = python3,\
+    kivy==2.2.1,\
     flet==0.9.0,\
     requests==2.31.0,\
     python-dotenv==1.0.0,\
     telethon==1.29.2,\
     flask==2.3.3,\
     flask-cors==4.0.0,\
-    colorama==0.4.6,\
-    kivy
+    colorama==0.4.6
 
-# (str) Supported orientation (one of landscape, sensorLandscape, portrait or all)
-orientation = portrait
+# Android specific
+android.api = 33
+android.minapi = 21
+android.sdk = 33
+android.ndk = 23.1.7779620
+android.ndk_api = 21
+android.private_storage = True
+android.accept_sdk_license = True
+android.arch = arm64-v8a
 
-# (bool) Indicate if the application should be fullscreen or not
-fullscreen = 0
-
-# (list) Permissions
+# Permissions
 android.permissions = INTERNET,WRITE_EXTERNAL_STORAGE,READ_EXTERNAL_STORAGE
 
-# (int) Target Android API, should be as high as possible.
-android.api = 33
+# Orientation
+orientation = portrait
+fullscreen = 0
 
-# (int) Minimum API your APK / AAB will support.
-android.minapi = 21
-
-# (str) Android NDK version to use
-android.ndk = 23b
-
-# (bool) If True, then skip trying to update the Android sdk
-android.skip_update = False
-
-# (bool) If True, then automatically accept SDK license
-android.accept_sdk_license = True
-
-# (str) The Android arch to build for, choices: armeabi-v7a, arm64-v8a, x86, x86_64
-android.archs = arm64-v8a, armeabi-v7a
-
-# (bool) enables Android auto backup feature (Android API >=23)
-android.allow_backup = True
-
-# (str) python-for-android branch to use
+# Python for Android
 p4a.branch = master
+p4a.bootstrap = sdl2
 
 [buildozer]
 # (int) Log level (0 = error only, 1 = info, 2 = debug (with command output))
