@@ -17,7 +17,7 @@ android-tools-adb
 python-for-android>=2023.5.0
 
 # Backend Dependencies
-flask==2.3.3
+flask==3.1.0
 flask-cors==4.0.0
 telethon==1.29.2
 asgiref==3.7.2
