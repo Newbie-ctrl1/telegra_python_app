@@ -19,8 +19,7 @@ requirements = python3,\
     flask==2.3.3,\
     flask-cors==4.0.0,\
     colorama==0.4.6,\
-    pillow==10.0.0,\
-    android
+    pillow==10.0.0
 
 # Android specific
 android.archs = arm64-v8a
@@ -46,6 +45,7 @@ fullscreen = 0
 # Python for Android
 p4a.branch = master
 p4a.bootstrap = sdl2
+p4a.local_recipes = ./recipes
 
 [buildozer]
 # (int) Log level (0 = error only, 1 = info, 2 = debug (with command output))

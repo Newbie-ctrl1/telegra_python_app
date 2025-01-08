@@ -22,8 +22,6 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install cython==0.29.33
-        pip install buildozer==1.5.0
         pip install -r requirements.txt
 
     - name: Install system dependencies
@@ -54,7 +52,8 @@ jobs:
           pkg-config \
           openjdk-17-jdk \
           libltdl-dev \
-          m4
+          m4 \
+          android-tools-adb
 
     - name: Setup Android SDK
       uses: android-actions/setup-android@v3
@@ -67,6 +66,18 @@ jobs:
         export ANDROID_NDK_HOME=$PWD/android-ndk-r25b
         echo "ANDROID_NDK_HOME=$ANDROID_NDK_HOME" >> $GITHUB_ENV
         echo "ANDROID_NDK_VERSION=25b" >> $GITHUB_ENV
+
+    - name: Cache Buildozer global directory
+      uses: actions/cache@v3
+      with:
+        path: .buildozer_global
+        key: buildozer-global-${{ hashFiles('buildozer.spec') }}
+
+    - name: Cache Buildozer local directory
+      uses: actions/cache@v3
+      with:
+        path: .buildozer
+        key: buildozer-local-${{ hashFiles('buildozer.spec') }}
 
     - name: Build APK
       run: |
