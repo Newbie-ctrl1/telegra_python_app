@@ -22,16 +22,41 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements-frontend.txt -r requirements-backend.txt
-        pip install pyinstaller
+        pip install buildozer
+        sudo apt-get update
+        sudo apt-get install -y \
+          python3-pip \
+          build-essential \
+          git \
+          python3 \
+          python3-dev \
+          ffmpeg \
+          libsdl2-dev \
+          libsdl2-image-dev \
+          libsdl2-mixer-dev \
+          libsdl2-ttf-dev \
+          libportmidi-dev \
+          libswscale-dev \
+          libavformat-dev \
+          libavcodec-dev \
+          zlib1g-dev \
+          libgstreamer1.0 \
+          gstreamer1.0-plugins-base \
+          gstreamer1.0-plugins-good \
+          openjdk-11-jdk \
+          autoconf \
+          automake \
+          libtool \
+          pkg-config
 
-    - name: Build with PyInstaller
+    - name: Build APK with Buildozer
       run: |
-        pyinstaller --onefile --name telegram-manager main.py
+        buildozer init
+        buildozer android debug
 
-    - name: Upload Artifact
+    - name: Upload Debug APK
       uses: actions/upload-artifact@v3
       with:
-        name: telegram-manager
-        path: dist/telegram-manager
+        name: telegram-manager-debug
+        path: bin/*.apk
         retention-days: 90 
