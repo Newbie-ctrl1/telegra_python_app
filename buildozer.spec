@@ -8,7 +8,6 @@ source.include_exts = py,png,jpg,kv,atlas,ttf
 source.include_patterns = assets/*,lib/*
 source.exclude_dirs = tests, bin, venv, myenv, .buildozer
 
-# Gunakan versi statis saja
 version = 0.1.0
 
 requirements = python3,\
@@ -19,17 +18,18 @@ requirements = python3,\
     telethon==1.29.2,\
     flask==2.3.3,\
     flask-cors==4.0.0,\
-    colorama==0.4.6
+    colorama==0.4.6,\
+    pillow==10.0.0
 
 # Android specific
+android.archs = arm64-v8a
 android.api = 33
 android.minapi = 21
-android.sdk = 33
-android.ndk = 23.1.7779620
+android.ndk = 25b
 android.ndk_api = 21
 android.private_storage = True
 android.accept_sdk_license = True
-android.arch = arm64-v8a
+android.allow_backup = True
 
 # Permissions
 android.permissions = INTERNET,WRITE_EXTERNAL_STORAGE,READ_EXTERNAL_STORAGE
@@ -47,7 +47,7 @@ p4a.bootstrap = sdl2
 log_level = 2
 
 # (int) Display warning if buildozer is run as root (0 = False, 1 = True)
-warn_on_root = 1
+warn_on_root = 0
 
 # (str) Path to build artifact storage, absolute or relative to spec file
 build_dir = ./.buildozer

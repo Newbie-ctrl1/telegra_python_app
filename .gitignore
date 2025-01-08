@@ -35,4 +35,34 @@ ENV/
 sessions/
 chat/
 *.session
-*.session-journal 
+*.session-journal
+
+# Buildozer
+.buildozer/
+bin/
+*.spec
+!buildozer.spec
+android/
+ios/
+dist/
+build/
+*.apk
+*.aab
+*.ipa
+
+# Flutter/Dart (hapus jika tidak digunakan)
+pubspec.yaml
+pubspec.lock
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+android/
+ios/
+
+# Log files
+*.log
+notification_history_*.txt 
