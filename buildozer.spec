@@ -8,7 +8,9 @@ source.include_exts = py,png,jpg,kv,atlas,ttf
 source.include_patterns = assets/*,lib/*
 source.exclude_dirs = tests, bin, venv, myenv, .buildozer
 
-version = 0.1
+# Gunakan versi statis saja
+version = 0.1.0
+
 requirements = python3,\
     flet==0.9.0,\
     requests==2.31.0,\
@@ -18,10 +20,6 @@ requirements = python3,\
     flask-cors==4.0.0,\
     colorama==0.4.6,\
     kivy
-
-# (str) Application versioning (method 1)
-version.regex = __version__ = ['"](.*)['"]
-version.filename = %(source.dir)s/main.py
 
 # (str) Supported orientation (one of landscape, sensorLandscape, portrait or all)
 orientation = portrait
