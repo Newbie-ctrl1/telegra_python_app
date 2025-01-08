@@ -19,7 +19,8 @@ requirements = python3,\
     flask==2.3.3,\
     flask-cors==4.0.0,\
     colorama==0.4.6,\
-    pillow==10.0.0
+    pillow==10.0.0,\
+    android
 
 # Android specific
 android.archs = arm64-v8a
@@ -30,6 +31,10 @@ android.ndk_api = 21
 android.private_storage = True
 android.accept_sdk_license = True
 android.allow_backup = True
+
+# Build options
+android.build_mode = debug
+android.release_artifact = apk
 
 # Permissions
 android.permissions = INTERNET,WRITE_EXTERNAL_STORAGE,READ_EXTERNAL_STORAGE
