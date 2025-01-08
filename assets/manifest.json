@@ -1,0 +1,22 @@
+{
+    "name": "Telethod Tools",
+    "short_name": "Telethod",
+    "description": "Tools untuk manajemen akun Telegram",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#2196f3",
+    "orientation": "any",
+    "icons": [
+        {
+            "src": "https://fonts.gstatic.com/s/i/materialicons/telegram/v1/24px.svg",
+            "sizes": "24x24",
+            "type": "image/svg+xml"
+        },
+        {
+            "src": "https://fonts.gstatic.com/s/i/materialicons/telegram/v1/48px.svg",
+            "sizes": "48x48",
+            "type": "image/svg+xml"
+        }
+    ]
+} 

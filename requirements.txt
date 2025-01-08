@@ -1,0 +1,6 @@
+flask[async]==2.0.1
+werkzeug==2.0.3
+telethon==1.28.5
+python-dotenv==0.19.0
+flask-cors==3.0.10
+asgiref==3.7.2
