@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  backend:
+    build: .
+    container_name: telegram-backend
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./sessions:/app/sessions
+      - ./chat:/app/chat
+      - ./.env:/app/.env
+    environment:
+      - FLASK_APP=server.py
+      - FLASK_ENV=production
+    command: python server.py
+    networks:
+      - telegram-network
+
+  frontend:
+    build: .
+    container_name: telegram-frontend
+    ports:
+      - "8550:8550"
+    volumes:
+      - ./sessions:/app/sessions
+      - ./chat:/app/chat
+      - ./.env:/app/.env
+    environment:
+      - FLET_PORT=8550
+      - FLET_FORCE_WEB_VIEW=true
+    command: python main.py
+    depends_on:
+      - backend
+    networks:
+      - telegram-network
+
+networks:
+  telegram-network:
+    driver: bridge
+
+volumes:
+  sessions:
+  chat: 

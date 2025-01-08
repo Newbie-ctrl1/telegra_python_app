@@ -265,6 +265,7 @@ def get_chat_history():
 
 @app.route('/list_sessions', methods=['GET'])
 def list_sessions():
+    """Mendapatkan daftar sesi yang tersedia"""
     try:
         if not os.path.exists(SESSIONS_DIR):
             return jsonify({
@@ -542,6 +543,11 @@ def delete_session():
             'status': 'error',
             'message': str(e)
         }), 500
+
+@app.route('/health', methods=['GET'])
+def health_check():
+    """Endpoint untuk mengecek status server"""
+    return jsonify({'status': 'success', 'message': 'Server is running'})
 
 if __name__ == '__main__':
     # Dapatkan IP address komputer

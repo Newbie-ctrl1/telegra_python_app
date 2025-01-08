@@ -1,6 +1,13 @@
-flask[async]==2.0.1
-werkzeug==2.0.3
-telethon==1.28.5
-python-dotenv==0.19.0
-flask-cors==3.0.10
+# Frontend Dependencies
+PyQt6==6.5.2
+requests==2.31.0
+python-dotenv==1.0.0
+python-telegram-bot==20.4
+colorama==0.4.6
+
+# Backend Dependencies
+flask==2.3.3
+flask-cors==4.0.0
+telethon==1.29.2
 asgiref==3.7.2
+python-logging-loki==0.3.1
