@@ -1,6 +1,6 @@
 # Frontend Dependencies
 PyQt6==6.5.2
-requests==2.31.0
+requests==2.32.3
 python-dotenv==1.0.0
 python-telegram-bot==20.4
 colorama==0.4.6
